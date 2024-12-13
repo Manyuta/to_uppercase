@@ -1,9 +1,9 @@
 # PURPOSE:
-# This function actually does the conversion to uppercase for a block
+# This function does the conversion to uppercase for a block
 #
 # INPUT:
 # The first parameter is the location of the block of memory to convert
-# The second parameter is the length of that buffer
+# The second parameter is the length of the buffer
 #
 # OUTPUT:
 # This function overwrites the current buffer with the uppercase version
@@ -40,7 +40,7 @@ convert_to_upper:
     movl ST_BUFFER_LEN(%ebp), %ebx
     movl $0, %edi                         # load zero into %edi
 
-    # if a buffer with zero length was given to us (stored in %ebx), if so, exit
+    # if a buffer with zero length was given (stored in %ebx), then exit
     cmpl $0, %ebx
     je end_convert_loop
 
@@ -64,7 +64,6 @@ next_byte:
     jne convert_loop
 
 end_convert_loop:
-    # no return value, since buffer is directly modified, so just leave
     movl %ebp, %esp
     popl %ebp
     ret
