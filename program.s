@@ -21,8 +21,7 @@
 
 .section .bss
 # Buffer - this is where the data is loaded into from the input file
-# and written from into the output file. This should not exceed 16,000
-# bytes for various reasons.
+# and written from into the output file.
 .equ BUFFER_SIZE, 128
 .lcomm BUFFER_DATA, BUFFER_SIZE
 
